@@ -8,8 +8,8 @@
   --black:    #060810;
   --dark:     #0b0f1a;
   --dark2:    #111827;
-  --gold:     #c8922a;
-  --gold2:    #e8b04a;
+  --gold:     #ff8935;
+  --gold2:    #E6762D;
   --gold-dim: rgba(200, 146, 42, 0.12);
   --white:    #f0ede8;
   --white2:   #c8c4bc;
@@ -130,7 +130,7 @@ nav.sc {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;        /* ← space between logo and text */
 }
 
 .nlogo span { color: var(--gold); }
@@ -176,6 +176,8 @@ nav.sc {
 
 .nlinks a:hover { color: var(--gold); }
 .nlinks a:hover::after { width: 100%; }
+
+
 
 .nbtn {
   font-size: 0.72rem;
@@ -1269,3 +1271,15 @@ footer {
   .hstats { gap: 1.8rem; flex-wrap: wrap; }
   .htitle { font-size: 4rem; }
 }
+
+.hide-on-mobile {
+  display: block;
+}
+
+/* Tablet + Mobile */
+@media (max-width: 960px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+

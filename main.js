@@ -15,6 +15,17 @@ window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('sc', window.scrollY > 60);
 });
 
+/* ── toogle mobile menu ── */
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
+
 /* ══════════════════════════════════════
    PARTICLE CANVAS
 ══════════════════════════════════════ */

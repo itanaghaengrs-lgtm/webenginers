@@ -5,16 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anagha Engineers – Industrial Excellence Since 2002</title>
-  <meta name="description" content="Anagha Engineers provides professional construction and engineering services.">
+  <link rel="icon" type="image/png" href="images/logoremovebg.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-
   <!-- NOISE OVERLAY -->
   <div id="noise"></div>
 
@@ -29,18 +30,24 @@
 
   <!-- ─── NAVIGATION ─── -->
   <nav id="nav">
-    <a href="#hero" class="nlogo">
+    <a href="index.html" class="nlogo">
+      <img src="/images/logoremovebg.png" alt="#" style="height:42px; width:auto; object-fit:contain;" />
       Anagha<span>Engineers</span>
-      <div class="ndot"></div>
     </a>
-    <ul class="nlinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why">Excellence</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nlinks" id="navLinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#why">Excellence</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="nbtn"><span>Get a Quote</span></a>
+    <a href="#contact" class="nbtn hide-on-mobile" ,><span>Get a Quote</span></a>
   </nav>
 
   <!-- ─── HERO ─── -->
@@ -51,7 +58,6 @@
 
     <div class="empty"></div>
     <div class="hcontent">
-
       <div class="heyebrow">
         <div class="heline"></div>
         <span class="hetext">Est. 2002 · Vadodara, Gujarat · ISO Quality Certified</span>
@@ -66,7 +72,7 @@
         that define industrial excellence across India.
       </p>
       <div class="hbtns">
-        <a href="#products" class="bgold"><span>Explore Products</span></a>
+        <a href="/products.html" class="bgold"><span>Explore Products</span></a>
         <a href="#about" class="bghost">Our Story</a>
       </div>
     </div>
@@ -126,7 +132,7 @@
       <div class="aimgw">
         <div class="acorner"></div>
         <div class="aimg">
-          <img src="./images/about.png" alt="Anagha Engineers Factory"
+          <img src="images/about.png" alt="Anagha Engineers Factory"
             style="width:100%; height:100%; object-fit:cover; object-position:center;" />
         </div>
       </div>
@@ -199,7 +205,10 @@
         <div class="pname">Dairy Equipment</div>
         <div class="pdesc">Hygienic, food-grade processing vessels, tanks, and handling systems engineered for the dairy
           industry's strictest standards.</div>
-        <div class="plink">View Details <span>→</span></div>
+        <div class="plink">
+          <div onclick="window.location.href='products.html'" style="cursor:pointer;">View Details <span>→</span>
+          </div>
+        </div>
       </div>
       <!-- Card 2 -->
       <div class="pcard rv d1">
@@ -213,7 +222,10 @@
         <div class="pname">Chemical Equipment</div>
         <div class="pdesc">Corrosion-resistant vessels, reactors, and pressure equipment designed for aggressive
           industrial chemical environments.</div>
-        <div class="plink">View Details <span>→</span></div>
+        <div class="plink">
+          <div onclick="window.location.href='products.html'" style="cursor:pointer;">View Details <span>→</span>
+          </div>
+        </div>
       </div>
       <!-- Card 3 -->
       <div class="pcard rv d2">
@@ -226,7 +238,10 @@
         <div class="pname">Conveyor Systems</div>
         <div class="pdesc">Custom material handling conveyor solutions for manufacturing, packaging, and warehouse
           automation.</div>
-        <div class="plink">View Details <span>→</span></div>
+        <div class="plink">
+          <div onclick="window.location.href='products.html'" style="cursor:pointer;">View Details <span>→</span>
+          </div>
+        </div>
       </div>
       <!-- Card 4 -->
       <div class="pcard rv d3">
@@ -240,7 +255,10 @@
         <div class="pname">Aluminium Fabrication</div>
         <div class="pdesc">Precision aluminium structures fabricated to exact specifications for industrial and
           architectural applications.</div>
-        <div class="plink">View Details <span>→</span></div>
+        <div class="plink">
+          <div onclick="window.location.href='products.html'" style="cursor:pointer;">View Details <span>→</span>
+          </div>
+        </div>
       </div>
       <!-- Card 5 -->
       <div class="pcard rv d4">
@@ -253,7 +271,10 @@
         <div class="pname">Welding Fabrication</div>
         <div class="pdesc">Heavy and sheet metal welding by certified professionals using advanced technology for
           complex assemblies.</div>
-        <div class="plink">View Details <span>→</span></div>
+        <div class="plink">
+          <div onclick="window.location.href='products.html'" style="cursor:pointer;">View Details <span>→</span>
+          </div>
+        </div>
       </div>
       <!-- Card 6 -->
       <div class="pcard rv d5">
@@ -267,7 +288,10 @@
         <div class="pname">Custom Manufacturing</div>
         <div class="pdesc">Bespoke industrial components built from your technical drawings with full customisation and
           flexible delivery.</div>
-        <div class="plink">View Details <span>→</span></div>
+        <div class="plink">
+          <div onclick="window.location.href='products.html'" style="cursor:pointer;">View Details <span>→</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -481,22 +505,22 @@
 
     <!-- Form -->
     <div class="rv d2">
-      <form class="cform" onsubmit="handleForm(event)">
+      <form class="cform " id="enquiryForm" onsubmit="handleForm(event)">
         <div class="frow">
-          <div class="fw"><label class="fl">Full Name</label><input type="text" class="fi" placeholder="Your name"
+          <div class="fw"><label class="fl">Full Name</label><input type="text" name="name" class="fi" placeholder="Your name"
               required /></div>
-          <div class="fw"><label class="fl">Company</label><input type="text" class="fi" placeholder="Your company" />
+          <div class="fw"><label class="fl">Company</label><input name="company" type="text" class="fi" placeholder="Your company" />
           </div>
         </div>
         <div class="frow">
-          <div class="fw"><label class="fl">Email</label><input type="email" class="fi" placeholder="name@email.com"
+          <div class="fw"><label class="fl">Email</label><input type="email" class="fi" name="email"  placeholder="name@email.com"
               required /></div>
-          <div class="fw"><label class="fl">Phone</label><input type="tel" class="fi" placeholder="+91 xxxx xxxx xx" />
+          <div class="fw"><label class="fl">Phone</label><input type="tel" class="fi" name="phone" placeholder="+91 xxxx xxxx xx" />
           </div>
         </div>
-        <div class="fw"><label class="fl">Product / Service Interest</label><input type="text" class="fi"
+        <div class="fw"><label class="fl">Product / Service Interest</label><input type="text" class="fi" name="interest"
             placeholder="e.g. Dairy Equipment, Conveyor System" /></div>
-        <div class="fw"><label class="fl">Project Details</label><textarea class="ft"
+        <div class="fw"><label class="fl">Project Details</label><textarea class="ft" name="message"
             placeholder="Describe your requirements — quantity, specs, timeline..."></textarea></div>
         <button type="submit" class="fsub"><span>Send Enquiry →</span></button>
       </form>
@@ -505,16 +529,44 @@
 
   <!-- ─── FOOTER ─── -->
   <footer>
-    <div class="flogo">Anagha<span>Engineers</span></div>
+
+    <div class="flogo"> <a href="index.html" class="nlogo">
+        <img src="/images/logoremovebg.png" alt="#" style="height:42px; width:auto; object-fit:contain;" />
+        Anagha<span>Engineers</span>
+      </a></span></div>
     <ul class="flinks">
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="fcopy">© 2024 Anagha Engineers, Vadodara. All rights reserved.</div>
+    <div class="fcopy">© 2026 Anagha Engineers, Vadodara. All rights reserved.</div>
   </footer>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
+  const btn = document.querySelector(".fsub span");
+  btn.textContent = "Sending...";
+
+  emailjs.sendForm("service_897es8x", "template_j0dngn1", this)
+    .then(() => {
+      btn.textContent = "Sent ✓";
+      alert("Enquiry sent successfully!");
+      this.reset();
+    })
+    .catch(() => {
+      btn.textContent = "Send Failed";
+      alert("Something went wrong!");
+    });
+});
+</script>
+<script>
+(function(){
+  emailjs.init("AJYI0hnxTdkZmgtEb");
+})();
+</script>
   <script src="main.js"></script>
 </body>
 

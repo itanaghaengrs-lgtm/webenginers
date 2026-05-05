@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="icon" type="image/png" href="images/logoremovebg.png" />
+  <title>Products – Anagha Engineers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── PAGE HERO ── */
+    .products-page .rv {
+      opacity: 1;
+      transform: none;
+    }
+
+    .page-hero {
+      min-height: 42vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 9rem 6% 4rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+    }
+
+    .page-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200, 146, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 146, 42, 0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .page-hero-grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 8, 16, 0.3) 0%, rgba(6, 8, 16, 0.6) 100%);
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .breadcrumb a {
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--gold);
+    }
+
+    .breadcrumb span {
+      color: var(--gold);
+    }
+
+    .page-hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: 0.03em;
+      color: var(--white);
+    }
+
+    .page-hero-title em {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--gold);
+      font-style: normal;
+    }
+
+    .page-hero-sub {
+      margin-top: 1rem;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--grey);
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    .page-hero-count {
+      position: absolute;
+      right: 6%;
+      bottom: 3rem;
+      z-index: 2;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 8rem;
+      line-height: 1;
+      color: rgba(200, 146, 42, 0.06);
+      letter-spacing: 0.05em;
+      pointer-events: none;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      background: var(--dark2);
+      border-bottom: 1px solid rgba(200, 146, 42, 0.1);
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      position: sticky;
+      top: 68px;
+      z-index: 100;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1.2rem 1.5rem;
+      white-space: nowrap;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .filter-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .filter-btn:hover {
+      color: var(--white);
+    }
+
+    .filter-btn.active {
+      color: var(--gold);
+    }
+
+    .filter-btn.active::after {
+      transform: scaleX(1);
+    }
+
+    /* ── PRODUCTS SECTION ── */
+    .products-page {
+      padding: 6rem 6%;
+      background: var(--black);
+    }
+
+    /* ── CATEGORY BLOCK ── */
+    .cat-block {
+      margin-bottom: 7rem;
+    }
+
+    .cat-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .cat-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(200, 146, 42, 0.12);
+    }
+
+    .cat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .cat-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--white);
+    }
+
+    .cat-desc {
+      max-width: 380px;
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--grey);
+      text-align: right;
+    }
+
+    /* ── PRODUCT CARD LARGE ── */
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* First card in a 3-col grid spans 2 cols */
+    .prod-grid .prod-card:first-child {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .prod-card {
+      background: var(--dark);
+      border: 1px solid rgba(200, 146, 42, 0.08);
+      overflow: hidden;
+      position: relative;
+      transition: border-color 0.4s, transform 0.4s;
+    }
+
+    .prod-card:hover {
+      border-color: rgba(200, 146, 42, 0.35);
+      transform: translateY(-4px);
+    }
+
+    /* Image area */
+    .prod-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark2);
+    }
+
+    /* Normal card image */
+    .prod-card:not(:first-child) .prod-img-wrap {
+      aspect-ratio: 4 / 3;
+    }
+
+    /* Wide card image (first child left column) */
+    .prod-card:first-child .prod-img-wrap {
+      aspect-ratio: unset;
+      height: 100%;
+      min-height: 280px;
+    }
+
+    .prod-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(0.2) brightness(0.88);
+      transition: filter 0.5s, transform 0.6s;
+    }
+
+    .prod-card:hover .prod-img-wrap img {
+      filter: grayscale(0) brightness(1);
+      transform: scale(1.04);
+    }
+
+    .prod-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(6, 8, 16, 0.7) 0%, transparent 50%);
+    }
+
+    .prod-img-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Info area */
+    .prod-info {
+      padding: 1.8rem;
+    }
+
+    .prod-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      transition: color 0.3s;
+    }
+
+    .prod-card:hover .prod-name {
+      color: var(--gold);
+    }
+
+    .prod-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--grey);
+      margin-bottom: 1.4rem;
+    }
+
+    /* Specs table */
+    .prod-specs {
+      border-top: 1px solid rgba(200, 146, 42, 0.1);
+      padding-top: 1.2rem;
+    }
+
+    .spec-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(200, 146, 42, 0.05);
+    }
+
+    .spec-row:last-child {
+      border-bottom: none;
+    }
+
+    .spec-key {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--grey);
+    }
+
+    .spec-val {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--white2);
+      text-align: right;
+    }
+
+    .prod-enquire {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.4rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200, 146, 42, 0.3);
+      padding-bottom: 0.2rem;
+      transition: border-color 0.3s, gap 0.3s;
+    }
+
+    .prod-enquire:hover {
+      border-color: var(--gold);
+      gap: 0.8rem;
+    }
+
+    /* ── SINGLE-COL GRIDS (for 1-product categories) ── */
+    .prod-grid-single {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .prod-grid-single .prod-card {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+    }
+
+    .prod-grid-single .prod-img-wrap {
+      aspect-ratio: unset;
+      height: 100%;
+      min-height: 220px;
+    }
+
+    /* ── CONTACT CTA ── */
+    .prod-cta {
+      background: var(--dark2);
+      border: 1px solid rgba(200, 146, 42, 0.12);
+      padding: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-top: 6rem;
+    }
+
+    .prod-cta-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .prod-cta-text p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .prod-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .prod-grid .prod-card:first-child {
+        grid-column: span 2;
+      }
+
+      .prod-grid-single {
+        grid-template-columns: 1fr;
+      }
+
+      .prod-grid-single .prod-card {
+        grid-template-columns: 1fr;
+      }
+
+      .prod-grid-single .prod-img-wrap {
+        min-height: 200px;
+      }
+
+      .cat-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+
+      .cat-desc {
+        text-align: left;
+      }
+
+      .prod-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .prod-grid,
+      .prod-grid-single {
+        grid-template-columns: 1fr;
+      }
+
+      .prod-grid .prod-card:first-child {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+
+      .prod-grid .prod-card:first-child .prod-img-wrap {
+        min-height: 220px;
+      }
+
+      .prod-cta {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="noise"></div>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="nav">
+    <a href="index.html" class="nlogo">
+      <img src="/images/logoremovebg.png" alt="#" style="height:42px; width:auto; object-fit:contain;" />
+      Anagha<span>Engineers</span>
+      <div class="ndot"></div>
+    </a>
+    <ul class="nlinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="products.html" style="color:var(--gold)">Products</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#why">Excellence</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="nbtn hide-on-mobile"><span>Get a Quote</span></a>
+  </nav>
+
+  <!-- ─── PAGE HERO ─── -->
+  <div class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-grad"></div>
+    <div class="page-hero-count">18+</div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>→</span>
+        <span>Products</span>
+      </div>
+      <h1 class="page-hero-title">Our <em>Products</em></h1>
+      <p class="page-hero-sub">18+ precision-engineered products across 9 categories — built to the highest industrial
+        standards since 2002.</p>
+    </div>
+  </div>
+
+  <!-- ─── FILTER BAR ─── -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Products</button>
+    <button class="filter-btn" data-filter="furnace">Metal Furnace</button>
+    <button class="filter-btn" data-filter="vessel">Reaction Vessel</button>
+    <button class="filter-btn" data-filter="tank">Chemical Tank</button>
+    <button class="filter-btn" data-filter="sheet">Sheet Metal</button>
+    <button class="filter-btn" data-filter="aluminium">Aluminium</button>
+    <button class="filter-btn" data-filter="heat">Heat Exchanger</button>
+    <button class="filter-btn" data-filter="conveyor">Conveyor</button>
+    <button class="filter-btn" data-filter="dairy">Dairy</button>
+  </div>
+
+  <!-- ─── PRODUCTS ─── -->
+  <div class="products-page">
+
+    <!-- ══ 01. METAL FURNACE ══ -->
+    <div class="cat-block rv" data-cat="furnace">
+      <div class="cat-header">
+        <div class="cat-title-wrap">
+          <div class="cat-num">Category 01</div>
+          <div class="cat-title">Metal Furnace</div>
+        </div>
+        <p class="cat-desc">High-temperature industrial furnaces engineered for zinc, sulphur, and gas-based melting
+          operations.</p>
+      </div>
+
+      <div class="prod-grid">
+        <!-- Zinc Melting Furnace — FEATURED -->
+        <div class="prod-card rv">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/RI/KR/MY-2463218/furnace-500x500.jpg" alt="Zinc Melting Furnace"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+            <div class="prod-img-tag">Featured</div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Zinc Melting Furnace</div>
+            <div class="prod-desc">Heavy-duty furnace designed for efficient zinc melting operations. Built with premium
+              refractory materials for sustained high-temperature performance and long service life.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Mild Steel /
+                  Refractory</span></div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Zinc Melting</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Operation</span><span class="spec-val">Gas / Electric</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Finish</span><span class="spec-val">Heat-Resistant
+                  Coating</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Sulphur Furnace -->
+        <div class="prod-card rv d1">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/YU/KW/MY-2463218/sulpher-furnace-500x500.jpg" alt="Sulphur Furnace"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Sulphur Furnace</div>
+            <div class="prod-desc">Precision-built sulphur processing furnace with corrosion-resistant construction for
+              chemical-grade applications.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">CS / SS</span></div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Sulphur
+                  Melting</span></div>
+              <div class="spec-row"><span class="spec-key">Corrosion Resistant</span><span class="spec-val">Yes</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Gas Furnace -->
+        <div class="prod-card rv d2">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/MH/AS/MY-2463218/gas-furnace-500x500.jpg" alt="Gas Furnace"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Gas Furnace</div>
+            <div class="prod-desc">Energy-efficient gas-fired furnace engineered for consistent temperature control
+              across industrial heating processes.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Fuel Type</span><span class="spec-val">LPG / PNG</span></div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Industrial
+                  Heating</span></div>
+              <div class="spec-row"><span class="spec-key">Temp. Control</span><span class="spec-val">Adjustable</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 02. REACTION VESSEL ══ -->
+    <div class="cat-block rv" data-cat="vessel">
+      <div class="cat-header">
+        <div class="cat-title-wrap">
+          <div class="cat-num">Category 02</div>
+          <div class="cat-title">Reaction Vessel</div>
+        </div>
+        <p class="cat-desc">Premium stainless steel and mild steel reaction vessels for chemical and pharmaceutical
+          industries.</p>
+      </div>
+
+      <div class="prod-grid">
+        <!-- Jacketed Reactors — FEATURED -->
+        <div class="prod-card rv">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/GG/BV/MY-2463218/reactor-with-jacket-500x500.jpg"
+              alt="Jacketed Reactors" loading="lazy" />
+            <div class="prod-img-overlay"></div>
+            <div class="prod-img-tag">Popular</div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Jacketed Reactors</div>
+            <div class="prod-desc">High-performance jacketed reactors for controlled temperature chemical reactions.
+              Manufactured using premium SS with precision welding for zero-leak performance.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS 304 / SS 316</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">Jacketed / Limpet
+                  Coil</span></div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Chemical /
+                  Pharma</span></div>
+              <div class="spec-row"><span class="spec-key">Agitator</span><span class="spec-val">Available on
+                  Request</span></div>
+              <div class="spec-row"><span class="spec-key">Pressure Rating</span><span class="spec-val">As Per
+                  Design</span></div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Reaction Vessel -->
+        <div class="prod-card rv d1">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/BY/FW/MY-2463218/stainless-steel-reaction-vessel-500x500.jpg"
+              alt="Reaction Vessel" loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Reaction Vessel</div>
+            <div class="prod-desc">High-durability SS reaction vessels with superior corrosion resistance, used in
+              chemical and pharmaceutical processing.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS / CS</span></div>
+              <div class="spec-row"><span class="spec-key">Finish</span><span class="spec-val">Superior / Mirror</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Corrosion Resistant</span><span class="spec-val">Yes</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- MS Tanks -->
+        <div class="prod-card rv d2">
+          <div class="prod-img-wrap"
+            style="background:var(--dark2);display:flex;align-items:center;justify-content:center;min-height:200px">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="15" y="10" width="50" height="60" rx="4" stroke="rgba(200,146,42,0.4)" stroke-width="2" />
+              <rect x="25" y="20" width="30" height="40" rx="2" stroke="rgba(200,146,42,0.25)" stroke-width="1.5" />
+              <line x1="40" y1="10" x2="40" y2="70" stroke="rgba(200,146,42,0.15)" stroke-width="1" />
+              <circle cx="40" cy="40" r="8" stroke="rgba(200,146,42,0.4)" stroke-width="1.5" />
+            </svg>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">MS Tanks</div>
+            <div class="prod-desc">Robust mild steel tanks manufactured for general-purpose industrial storage and
+              process applications.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Mild Steel (MS)</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Industrial
+                  Storage</span></div>
+              <div class="spec-row"><span class="spec-key">Surface</span><span class="spec-val">Painted / Coated</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 03. CHEMICAL TANK ══ -->
+    <div class="cat-block rv" data-cat="tank">
+      <div class="cat-header">
+        <div class="cat-title-wrap">
+          <div class="cat-num">Category 03</div>
+          <div class="cat-title">Chemical Tank</div>
+        </div>
+        <p class="cat-desc">Corrosion-resistant storage and process tanks for safe handling of aggressive chemical
+          substances.</p>
+      </div>
+
+      <div class="prod-grid">
+        <!-- Vertical Storage Tank — FEATURED -->
+        <div class="prod-card rv">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/DV/CJ/MY-2463218/vertical-storage-tank-with-limpet-coil-500x500.jpg"
+              alt="Vertical Storage Tank" loading="lazy" />
+            <div class="prod-img-overlay"></div>
+            <div class="prod-img-tag">Popular</div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Vertical Storage Tank</div>
+            <div class="prod-desc">Vertical tanks with limpet coil for temperature-controlled chemical storage. Designed
+              for safe containment of reactive and corrosive substances.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS 304 / SS 316L</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">Vertical with Limpet
+                  Coil</span></div>
+              <div class="spec-row"><span class="spec-key">Capacity</span><span class="spec-val">As Per
+                  Requirement</span></div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Chemical
+                  Storage</span></div>
+              <div class="spec-row"><span class="spec-key">Surface Finish</span><span
+                  class="spec-val">Electro-Polished</span></div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Chemical Storage Tank -->
+        <div class="prod-card rv d1">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/FI/XO/MY-2463218/storage-tank-500x500.jpg" alt="Chemical Storage Tank"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Chemical Storage Tank</div>
+            <div class="prod-desc">Heavy-duty chemical storage tanks with robust construction for long-term safe storage
+              of industrial chemicals.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS / MS / FRP</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Orientation</span><span class="spec-val">Vertical /
+                  Horizontal</span></div>
+              <div class="spec-row"><span class="spec-key">Corrosion Resistant</span><span class="spec-val">Yes</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Chemical Concentrator -->
+        <div class="prod-card rv d2">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/AK/VJ/MY-2463218/pre-concentrator-500x500.jpg"
+              alt="Chemical Concentrator" loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Chemical Concentrator</div>
+            <div class="prod-desc">Pre-concentrator systems for efficient concentration of chemical solutions in
+              industrial and pharmaceutical manufacturing.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS 316L</span></div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Chemical /
+                  Pharma</span></div>
+              <div class="spec-row"><span class="spec-key">Operation</span><span class="spec-val">Continuous /
+                  Batch</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 04. SHEET METAL PRODUCTS ══ -->
+    <div class="cat-block rv" data-cat="sheet">
+      <div class="cat-header">
+        <div class="cat-title-wrap">
+          <div class="cat-num">Category 04</div>
+          <div class="cat-title">Sheet Metal Products</div>
+        </div>
+        <p class="cat-desc">Precision sheet metal fabricated components including impellers, fans and screens for
+          industrial systems.</p>
+      </div>
+
+      <div class="prod-grid">
+        <!-- Pump Impeller — FEATURED -->
+        <div class="prod-card rv">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/JO/ES/MY-2463218/impeller-500x500.jpg" alt="Pump Impeller"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+            <div class="prod-img-tag">Precision</div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Pump Impeller</div>
+            <div class="prod-desc">High-precision pump impellers manufactured from SS and MS for centrifugal pumps used
+              in chemical, dairy and water treatment applications.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS 304 / SS 316 /
+                  MS</span></div>
+              <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">Closed / Open /
+                  Semi-Open</span></div>
+              <div class="spec-row"><span class="spec-key">Balancing</span><span class="spec-val">Dynamic
+                  Balanced</span></div>
+              <div class="spec-row"><span class="spec-key">Finish</span><span class="spec-val">Machined</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Blower Fan -->
+        <div class="prod-card rv d1">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/MX/TF/MY-2463218/blower-fan-500x500.jpg" alt="Blower Fan"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Blower Fan</div>
+            <div class="prod-desc">Industrial blower fans with aerodynamically optimized blade design for high air-flow
+              efficiency in ventilation and process systems.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">MS / SS /
+                  Aluminium</span></div>
+              <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">Centrifugal / Axial</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Balancing</span><span class="spec-val">Static /
+                  Dynamic</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Circular Screen Duck -->
+        <div class="prod-card rv d2">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/FR/PH/MY-2463218/ciruclar-screen-500x500.jpg" alt="Circular Screen Duck"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Circular Screen Duck</div>
+            <div class="prod-desc">Precision circular screen fabricated for filtration and separation applications in
+              chemical and food processing industries.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS / MS</span></div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Filtration /
+                  Separation</span></div>
+              <div class="spec-row"><span class="spec-key">Mesh Size</span><span class="spec-val">As Per
+                  Requirement</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 05. ALUMINIUM FABRICATION ══ -->
+    <div class="cat-block rv" data-cat="aluminium">
+      <div class="cat-header">
+        <div class="cat-title-wrap">
+          <div class="cat-num">Category 05</div>
+          <div class="cat-title">Aluminium Fabrication</div>
+        </div>
+        <p class="cat-desc">Precision aluminium welding and fabrication services for industrial and structural
+          applications.</p>
+      </div>
+
+      <div class="prod-grid-single">
+        <!-- Aluminum Welding Services -->
+        <div class="prod-card rv">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/MT/FK/MY-2463218/aluminium-fabrication-500x500.jpg"
+              alt="Aluminum Welding Services" loading="lazy" />
+            <div class="prod-img-overlay"></div>
+            <div class="prod-img-tag">Service</div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Aluminum Welding Services</div>
+            <div class="prod-desc">Expert TIG and MIG aluminium welding services by certified professionals for
+              structural, industrial and custom fabrication requirements.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Welding Type</span><span class="spec-val">TIG / MIG</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Material Grade</span><span class="spec-val">All Aluminium
+                  Alloys</span></div>
+              <div class="spec-row"><span class="spec-key">Weld Quality</span><span class="spec-val">X-Ray / DPT
+                  Tested</span></div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Industrial /
+                  Structural</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Yes — Per
+                  Drawing</span></div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Aluminum Fabrication Work -->
+        <div class="prod-card rv d1">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/YK/WD/MY-2463218/aluminium-fabrication-500x500.jpg"
+              alt="Aluminum Fabrication Work" loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Aluminum Fabrication Work</div>
+            <div class="prod-desc">Complete aluminium fabrication solutions from design to delivery — panels, frames,
+              enclosures and structural components made to exact specifications.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Aluminium Alloys</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Processes</span><span class="spec-val">Cutting, Bending,
+                  Welding</span></div>
+              <div class="spec-row"><span class="spec-key">Finish</span><span class="spec-val">Anodised / Powder
+                  Coated</span></div>
+              <div class="spec-row"><span class="spec-key">Tolerance</span><span class="spec-val">±0.5 mm</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Yes — Per
+                  Drawing</span></div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 06. CHEMICAL HEAT EXCHANGER ══ -->
+    <div class="cat-block rv" data-cat="heat">
+      <div class="cat-header">
+        <div class="cat-title-wrap">
+          <div class="cat-num">Category 06</div>
+          <div class="cat-title">Chemical Heat Exchanger</div>
+        </div>
+        <p class="cat-desc">Efficient heat transfer equipment for industrial chemical and process engineering
+          applications.</p>
+      </div>
+
+      <div class="prod-grid-single">
+        <div class="prod-card rv">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/KU/TL/MY-2463218/pre-heater-500x500.jpg" alt="Chemical Heat Exchanger"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+            <div class="prod-img-tag">Engineered</div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Chemical Heat Exchanger</div>
+            <div class="prod-desc">High-efficiency shell and tube heat exchangers designed for demanding chemical and
+              process applications. Manufactured to TEMA / ASME standards with precision-welded construction.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">Shell &amp; Tube /
+                  Plate</span></div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS 304 / SS 316 /
+                  CS</span></div>
+              <div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">TEMA / ASME</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Application</span><span class="spec-val">Chemical / Pharma /
+                  Oil</span></div>
+              <div class="spec-row"><span class="spec-key">Pressure Rating</span><span class="spec-val">As Per
+                  Design</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 07. SPIRAL ELEVATOR ══ -->
+    <div class="cat-block rv" data-cat="conveyor">
+      <div class="cat-header">
+        <div class="cat-title-wrap">
+          <div class="cat-num">Category 07</div>
+          <div class="cat-title">Spiral Elevator &amp; Screw Conveyor</div>
+        </div>
+        <p class="cat-desc">Material handling solutions for vertical and horizontal conveyance in manufacturing and
+          processing plants.</p>
+      </div>
+
+      <div class="prod-grid-single">
+        <!-- Spiral Elevator -->
+        <div class="prod-card rv">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/GS/XS/MY-2463218/spiral-elevator-500x500.jpg" alt="Spiral Elevator"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+            <div class="prod-img-tag">Handling</div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Spiral Elevator</div>
+            <div class="prod-desc">Space-efficient spiral elevators for vertical conveying of bulk materials, granules,
+              and packaged goods in manufacturing and warehouse environments.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">MS / SS</span></div>
+              <div class="spec-row"><span class="spec-key">Conveying Type</span><span class="spec-val">Vertical /
+                  Inclined</span></div>
+              <div class="spec-row"><span class="spec-key">Drive</span><span class="spec-val">Electric Motor</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Capacity</span><span class="spec-val">As Per
+                  Requirement</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+
+        <!-- Screw Conveyor -->
+        <div class="prod-card rv d1">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/DV/XX/MY-2463218/screw-conveyor-500x500.jpg" alt="Screw Conveyor"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Screw Conveyor</div>
+            <div class="prod-desc">Reliable screw conveyors for bulk material transport in powder, grain and aggregate
+              handling applications across food, chemical and agricultural industries.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">MS / SS 304</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">Horizontal /
+                  Inclined</span></div>
+              <div class="spec-row"><span class="spec-key">Flight Type</span><span class="spec-val">Full / Ribbon /
+                  Cut</span></div>
+              <div class="spec-row"><span class="spec-key">Drive</span><span class="spec-val">Geared Motor</span></div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 08. DAIRY TANK ══ -->
+    <div class="cat-block rv" data-cat="dairy">
+      <div class="cat-header">
+        <div class="cat-title-wrap">
+          <div class="cat-num">Category 08</div>
+          <div class="cat-title">Dairy Tank</div>
+        </div>
+        <p class="cat-desc">Food-grade dairy tanks engineered to hygiene and safety standards for milk processing and
+          storage.</p>
+      </div>
+
+      <div class="prod-grid-single">
+        <div class="prod-card rv">
+          <div class="prod-img-wrap">
+            <img src="https://3.imimg.com/data3/TF/YJ/MY-2463218/dairy-equipment-500x500.jpg" alt="Dairy Tank"
+              loading="lazy" />
+            <div class="prod-img-overlay"></div>
+            <div class="prod-img-tag">Food Grade</div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-name">Dairy Tank</div>
+            <div class="prod-desc">Hygienic stainless steel dairy tanks manufactured to food-grade standards for milk
+              storage, pasteurisation and processing. Smooth interior finish ensures easy cleaning and zero
+              contamination.</div>
+            <div class="prod-specs">
+              <div class="spec-title">Specifications</div>
+              <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS 304 / SS 316L</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Surface Finish</span><span class="spec-val">Mirror /
+                  Electro-Polished</span></div>
+              <div class="spec-row"><span class="spec-key">Insulation</span><span class="spec-val">PUF / Rock
+                  Wool</span></div>
+              <div class="spec-row"><span class="spec-key">Capacity</span><span class="spec-val">500 L – 50,000 L</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">Food Grade / GMP</span>
+              </div>
+              <div class="spec-row"><span class="spec-key">Customisation</span><span class="spec-val">Available</span>
+              </div>
+            </div>
+            <a href="index.html#contact" class="prod-enquire">Request a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BOTTOM CTA ── -->
+    <div class="prod-cta rv">
+      <div class="prod-cta-text">
+        <h3>Don't See What You Need?</h3>
+        <p>We specialise in custom manufacturing. Share your drawings or requirements and our engineering team will
+          build exactly what you need.</p>
+      </div>
+      <a href="index.html#contact" class="bgold"><span>Request Custom Product →</span></a>
+    </div>
+
+  </div><!-- /products-page -->
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="flogo">
+      <a href="index.html" class="nlogo">
+        <img src="/images/logoremovebg.png" alt="#" style="height:42px; width:auto; object-fit:contain;" />
+        Anagha<span>Engineers</span>
+      </a></span>
+    </div>
+    <ul class="flinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="fcopy">© 2026 Anagha Engineers, Vadodara. All rights reserved.</div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    /* ── PRODUCT FILTER ── */
+    const filterBtns = document.querySelectorAll('.filter-btn');   // ← was missing
+    const catBlocks = document.querySelectorAll('.cat-block');    // ← was missing
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        catBlocks.forEach(block => {
+          if (filter === 'all' || block.dataset.cat === filter) {
+            block.style.display = '';
+            setTimeout(() => block.style.opacity = '1', 10);
+          } else {
+            block.style.opacity = '0';
+            setTimeout(() => block.style.display = 'none', 300);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
